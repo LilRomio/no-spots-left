@@ -9,12 +9,16 @@ import Logo from '../assets/NoSpotsLeft-logo.png';
 
 const navLinks = [
   {
-    title: 'About',
-    path: '#about',
+    title: 'Home',
+    path: '/',
   },
   {
     title: 'What We Do',
-    path: '#projects',
+    path: '#whatWeDo',
+  },
+  {
+    title: 'Testimonials',
+    path: '#testimonials',
   },
   {
     title: 'Contact',
@@ -35,14 +39,14 @@ const Navbar = () => {
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-black hover:border-white"
+              className="flex items-center px-3 py-2 border rounded border-slate-600 text-slate-600 hover:text-black hover:border-white"
             >
               <Bars3Icon className="w-5 h-5" />
             </button>
           ) : (
             <button
               onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+              className="flex items-center px-3 py-2 border rounded border-slate-600 text-slate-600 hover:text-black hover:border-white"
             >
               <XMarkIcon className="w-5 h-5" />
             </button>

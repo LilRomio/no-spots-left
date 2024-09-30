@@ -9,7 +9,7 @@ const TAB_DATA = [
     id: 'domestic',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>
+        <h1 className="section-description">
           Your home is your sanctuary, and we treat it that way. Our domestic cleaning service offers everything from routine cleaning to deep cleans,
           ensuring your living space remains fresh, comfortable, and pristine. Whether it&apos;s regular weekly cleaning or a one-off deep clean, our
           team will handle everything:
@@ -29,7 +29,7 @@ const TAB_DATA = [
     id: 'office',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>
+        <h1 className="section-description">
           A clean office promotes productivity and leaves a lasting impression on clients and employees. No Spots Left offers customizable office
           cleaning services designed to maintain a pristine and healthy work environment:
         </h1>
@@ -48,7 +48,7 @@ const TAB_DATA = [
     id: 'endTenancy',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>
+        <h1 className="section-description">
           Moving out? Leave the cleaning to us. We provide comprehensive end-of-tenancy cleaning services that ensure the property is spotless for the
           next tenants or to meet the landlord&apos;s expectations. Our service covers:
         </h1>
@@ -64,7 +64,7 @@ const TAB_DATA = [
     id: 'deepCleaning',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>
+        <h1 className="section-description">
           Ideal for spring cleaning or special occasions, this service goes beyond standard cleaning to tackle areas often overlooked during routine
           cleans:
         </h1>
@@ -80,7 +80,7 @@ const TAB_DATA = [
     id: 'carpet',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>
+        <h1 className="section-description">
           Over time, carpets and upholstery can trap dirt, allergens, and odors. This specialized service ensures a deep clean for soft furnishings:
         </h1>
         <li>Carpet Steam Cleaning: Deep cleaning to remove stains, dirt, and allergens from carpets.</li>
@@ -95,7 +95,7 @@ const TAB_DATA = [
     id: 'construction',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>After renovation or construction, a property often needs thorough cleaning to remove debris and dust:</h1>
+        <h1 className="section-description">After renovation or construction, a property often needs thorough cleaning to remove debris and dust:</h1>
         <li>Debris Removal: Cleaning and removing dust, drywall particles, and leftover materials.</li>
 
         <li>Window and Surface Cleaning: Making sure windows, countertops, and floors are spotless after the mess.</li>
@@ -108,7 +108,7 @@ const TAB_DATA = [
     id: 'pressure',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>Ideal for outdoor cleaning, pressure washing removes dirt, mold, and grime from exterior surfaces:</h1>
+        <h1 className="section-description">Ideal for outdoor cleaning, pressure washing removes dirt, mold, and grime from exterior surfaces:</h1>
         <li>Driveways and Patios: Pressure washing stone, concrete, and tiled surfaces to remove buildup.</li>
 
         <li>House Exterior and Fences: Cleaning siding, fences, and other exterior areas that require high-powered cleaning.</li>
@@ -116,11 +116,11 @@ const TAB_DATA = [
     ),
   },
   {
-    title: 'Airbnb/Vacation Rental Cleaning',
+    title: 'Airbnb Rental Cleaning',
     id: 'airBnb',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>Offer a specialized cleaning service tailored to short-term rental properties like Airbnb listings:</h1>
+        <h1 className="section-description">Offer a specialized cleaning service tailored to short-term rental properties like Airbnb listings:</h1>
         <li>
           Turnover Service: Preparing the property between guests, including laundry, replenishing supplies, and ensuring the space is guest-ready.
         </li>
@@ -134,7 +134,7 @@ const TAB_DATA = [
     id: 'commercial',
     content: (
       <ul className="pl-2 list-disc">
-        <h1>Expand your commercial services to include retail shops, restaurants, and other business premises:</h1>
+        <h1 className="section-description ">Expand your commercial services to include retail shops, restaurants, and other business premises:</h1>
         <li>Storefront and Display Cleaning: Ensuring that windows and displays are spotless to attract customers.</li>
 
         <li>Restroom and Kitchen Cleaning: Providing a regular cleaning service for high-traffic restrooms and kitchen areas.</li>
@@ -144,7 +144,7 @@ const TAB_DATA = [
   },
 ];
 
-const AboutSection = () => {
+const WhatWeDoSection = () => {
   const [tab, setTab] = useState('domestic');
   const [isPending, startTransition] = useTransition();
 
@@ -155,7 +155,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white" id="about">
+    <section id="whatWeDo" className="text-black">
       <div className="items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
         <div className="flex flex-col h-full mt-4 text-left md:mt-0">
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
@@ -198,7 +198,7 @@ const AboutSection = () => {
             </TabButton>
             <TabButton selectTab={() => handleTabChange('airBnb')} active={tab === 'airBnb'}>
               {' '}
-              Airbnb/Vacation Rental Cleaning{' '}
+              Airbnb Rental Cleaning{' '}
             </TabButton>
             <TabButton selectTab={() => handleTabChange('commercial')} active={tab === 'commercial'}>
               {' '}
@@ -212,4 +212,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default WhatWeDoSection;

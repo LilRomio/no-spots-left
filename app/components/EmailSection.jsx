@@ -39,14 +39,15 @@ const EmailSection = () => {
   };
 
   return (
-    <section id="contact" className="relative grid gap-4 py-24 my-12 md:grid-cols-2 md:my-12">
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      <div className="z-10">
-        <h5 className="my-2 text-xl font-bold text-white">Let&apos;s Connect</h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
+    <section
+      id="contact"
+      className="relative grid gap-4 py-24 my-12 md:grid-cols-2 md:my-12 pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-x-clip"
+    >
+      <div className="z-10 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
+        <h5 className="my-2 text-3xl font-bold text-black">Let&apos;s Get This Sorted, Shall We?</h5>
+        <p className="max-w-md mb-4 text-xl text-black ">
           {' '}
-          I&apos;m currently looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I&apos;ll try
-          my best to get back to you!
+          Pop your details, and we’ll be round to give your Surrey space a proper tidy – no spot left behind!{' '}
         </p>
         <div className="flex flex-row gap-2 socials">
           <Link href="github.com">
@@ -63,7 +64,7 @@ const EmailSection = () => {
         ) : (
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <div className="mb-6">
-              <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">
+              <label htmlFor="email" className="block mb-2 text-sm font-medium text-black">
                 Your email
               </label>
               <input
@@ -76,7 +77,7 @@ const EmailSection = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="subject" className="block mb-2 text-sm font-medium text-white">
+              <label htmlFor="subject" className="block mb-2 text-sm font-medium text-black">
                 Subject
               </label>
               <input
@@ -89,17 +90,17 @@ const EmailSection = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="message" className="block mb-2 text-sm font-medium text-white">
+              <label htmlFor="message" className="block mb-2 text-sm font-medium text-black">
                 Message
               </label>
               <textarea
                 name="message"
                 id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 "
                 placeholder="Let's talk about..."
               />
             </div>
-            <button type="submit" className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full">
+            <button type="submit" className="bg-primary-500 hover:bg-primary-600 text-black font-medium py-2.5 px-5 rounded-lg w-full">
               Send Message
             </button>
           </form>

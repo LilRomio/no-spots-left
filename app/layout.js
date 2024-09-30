@@ -1,7 +1,8 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+import { twMerge } from 'tailwind-merge';
+const dmSans = DM_Sans({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'No Spots Left',
@@ -10,8 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="relative">
+      <body className={twMerge(dmSans.className, 'antialiased bg-[#EAEEFE]')}>{children}</body>
     </html>
   );
 }
