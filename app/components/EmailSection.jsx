@@ -58,7 +58,7 @@ const EmailSection = () => {
           </Link>
         </div>
       </div>
-      <div>
+      <div className="z-10 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
         {emailSubmitted ? (
           <p className="mt-2 text-sm text-green-500">Email sent successfully!</p>
         ) : (
@@ -96,7 +96,7 @@ const EmailSection = () => {
               <textarea
                 name="message"
                 id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 "
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block min-h-200 w-full p-2.5 "
                 placeholder="Let's talk about..."
               />
             </div>

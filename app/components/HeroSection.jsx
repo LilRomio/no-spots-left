@@ -19,7 +19,7 @@ const HeroSection = () => {
       ref={heroRef}
       className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-x-clip"
     >
-      <div className="items-center gap-8 px-4 py-8 md:flex md:flex-row xl:gap-16 sm:py-16 xl:px-16">
+      <div className="items-center gap-8 px-4 py-8 md:flex xl:gap-16 sm:py-16 xl:px-16">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -56,11 +56,8 @@ const HeroSection = () => {
             your home, office, or somewhere in between, we’ve got you covered – no fuss, no spots, just pristine results.
           </p>
           <div>
-            <Link
-              href="/#contact"
-              className="inline-block w-full px-1 py-1 mt-3 text-white rounded-full sm:w-fit bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800"
-            >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">Get a quote</span>
+            <Link href="/#contact" className="btn btn-primary">
+              Get a quote
             </Link>
           </div>
         </motion.div>
@@ -68,13 +65,13 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="relative hidden col-span-4 mt-4 md:block place-self-center lg:mt-0"
+          className="relative col-span-4 mt-4 md:block place-self-center lg:mt-0"
         >
           <motion.img
             src={Sponge.src}
             alt="Sponge image"
-            width={600}
-            height={600}
+            width={300}
+            height={300}
             animate={{
               translateX: [-10, -450],
               translateY: [30, -100],
