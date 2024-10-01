@@ -133,7 +133,7 @@ const TAB_DATA = [
     title: 'Commercial and Retail Cleaning',
     id: 'commercial',
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc ">
         <h1 className="section-description ">Expand your commercial services to include retail shops, restaurants, and other business premises:</h1>
         <li>Storefront and Display Cleaning: Ensuring that windows and displays are spotless to attract customers.</li>
 
@@ -205,7 +205,7 @@ const WhatWeDoSection = () => {
               Commercial and Retail Cleaning{' '}
             </TabButton>
           </div>
-          <div className="mt-8">{TAB_DATA.find((t) => t.id === tab).content}</div>
+          <div className="mt-8 ">{TAB_DATA.find((t) => t.id === tab).content}</div>
         </div>
       </div>
     </section>

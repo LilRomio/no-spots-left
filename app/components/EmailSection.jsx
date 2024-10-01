@@ -1,9 +1,11 @@
 'use client';
 import React, { useState } from 'react';
-
+import Whatsapp from '../assets/whatsapp.png';
+import Phone from '../assets/phone.png';
+import Facebook from '../assets/facebook.png';
 import Link from 'next/link';
-import Image from 'next/image';
 
+import { motion } from 'framer-motion';
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
@@ -49,12 +51,39 @@ const EmailSection = () => {
           {' '}
           Pop your details, and we’ll be round to give your Surrey space a proper tidy – no spot left behind!{' '}
         </p>
-        <div className="flex flex-row gap-2 socials">
-          <Link href="github.com">
-            <Image alt="Github Icon" />
+        <div className="flex flex-row gap-8 socials">
+          <Link href="tel:+447570532554" target="_blank" rel="noreferrer">
+            <motion.img
+              whileInView={{ scale: [0, 1] }}
+              whileHover={{ scale: [1, 0.9] }}
+              transition={{ duration: 0.25 }}
+              src={Phone.src}
+              alt="Phone"
+              width={40}
+              height={40}
+            />
           </Link>
-          <Link href="linkedin.com">
-            <Image alt="Linkedin Icon" />
+          <Link href="whatsapp://send?text=Hello World!&phone=+447570532554" target="_blank" rel="noreferrer">
+            <motion.img
+              whileInView={{ scale: [0, 1] }}
+              whileHover={{ scale: [1, 0.9] }}
+              transition={{ duration: 0.25 }}
+              src={Whatsapp.src}
+              alt="Whatsapp"
+              width={40}
+              height={40}
+            />
+          </Link>
+          <Link href="whatsapp://send?text=Hello World!&phone=+447570532554" target="_blank" rel="noreferrer">
+            <motion.img
+              whileInView={{ scale: [0, 1] }}
+              whileHover={{ scale: [1, 0.9] }}
+              transition={{ duration: 0.25 }}
+              src={Facebook.src}
+              alt="Facebook"
+              width={40}
+              height={40}
+            />
           </Link>
         </div>
       </div>

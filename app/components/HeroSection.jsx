@@ -65,21 +65,20 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="relative col-span-4 mt-4 md:block place-self-center lg:mt-0"
+          className="absolute hidden col-span-4 mt-4 top-20 md:block lg:mt-0"
         >
           <motion.img
             src={Sponge.src}
             alt="Sponge image"
-            width={300}
-            height={300}
+            width={200}
+            height={200}
             animate={{
-              translateX: [-10, -450],
-              translateY: [30, -100],
+              translateX: [1100, 650],
             }}
             transition={{
               repeat: Infinity,
               repeatType: 'mirror',
-              duration: 4,
+              duration: 6,
               ease: 'easeInOut',
             }}
           />

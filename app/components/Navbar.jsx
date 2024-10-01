@@ -6,7 +6,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import Image from 'next/image';
 import Logo from '../assets/NoSpotsLeft-logo.png';
-
+import Button from './menu/button';
+import Nav from './menu/nav';
 const navLinks = [
   {
     title: 'Home',
@@ -26,9 +27,26 @@ const navLinks = [
   },
 ];
 
+const menu = {
+  open: {
+    width: '480px',
+    height: '650px',
+    top: '-25px',
+    right: '-25px',
+    transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },
+  },
+  closed: {
+    width: '100px',
+    height: '40px',
+    top: '0px',
+    right: '0px',
+    transition: { duration: 0.75, delay: 0.35, type: 'tween', ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-
+  const [isActive, setIsActive] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 mx-auto bg-transparent bg-opacity-100">
       <div className="container flex flex-wrap items-center justify-between px-4 py-2 mx-auto lg:py-4">

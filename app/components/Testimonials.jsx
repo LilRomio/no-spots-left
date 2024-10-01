@@ -114,8 +114,8 @@ const Testimonials = () => {
             What Our Clients Say
           </h2>
           <p className="mt-5 section-description">
-            At No Spots Left, nothing speaks louder than the praise of our happy clients. From spotless homes to gleaming offices, our customers love
-            the detail and dedication we bring to every clean. Hear why they trust us to keep their spaces shining!
+            Nothing speaks louder than the praise of our happy clients. From spotless homes to gleaming offices, our customers love the detail and
+            dedication we bring to every clean. Hear why they trust us to keep their spaces shining!
           </p>
         </div>
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[738px] overflow-hidden mt-10">
