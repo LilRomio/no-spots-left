@@ -7,43 +7,32 @@ import Link from 'next/link';
 
 import { motion } from 'framer-motion';
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    subject: '',
+    message: '',
+  });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = '/api/send';
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: 'POST',
-      // Tell the server we're sending JSON.
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
+  const [loading, setLoading] = useState(false);
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
+  const { email, subject, message } = formData;
 
-    if (response.status === 200) {
-      console.log('Message sent.');
-      setEmailSubmitted(true);
-    }
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = () => {
+    setLoading(true);
   };
 
   return (
     <section
       id="contact"
-      className="relative grid gap-4 py-24 my-12 md:grid-cols-2 md:my-12 pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-x-clip"
+      className="relative grid gap-4 py-24 pt-8 pb-20 my-12 md:grid-cols-2 md:my-12 md:pt-5 md:pb-10 overflow-x-clip"
     >
       <div className="z-10 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
         <h5 className="my-2 text-3xl font-bold text-black">Let&apos;s Get This Sorted, Shall We?</h5>
@@ -52,7 +41,7 @@ const EmailSection = () => {
           Pop your details, and we’ll be round to give your Surrey space a proper tidy – no spot left behind!{' '}
         </p>
         <div className="flex flex-row gap-8 socials">
-          <Link href="tel:+447570532554" target="_blank" rel="noreferrer">
+          <a href="tel:+447570532554" target="_blank" rel="noreferrer">
             <motion.img
               whileInView={{ scale: [0, 1] }}
               whileHover={{ scale: [1, 0.9] }}
@@ -62,8 +51,8 @@ const EmailSection = () => {
               width={40}
               height={40}
             />
-          </Link>
-          <Link href="whatsapp://send?text=Hello World!&phone=+447570532554" target="_blank" rel="noreferrer">
+          </a>
+          <a href="whatsapp://send?text=Hello World!&phone=+447570532554" target="_blank" rel="noreferrer">
             <motion.img
               whileInView={{ scale: [0, 1] }}
               whileHover={{ scale: [1, 0.9] }}
@@ -73,8 +62,12 @@ const EmailSection = () => {
               width={40}
               height={40}
             />
-          </Link>
-          <Link href="whatsapp://send?text=Hello World!&phone=+447570532554" target="_blank" rel="noreferrer">
+          </a>
+          <a
+            href="https://www.facebook.com/people/Gstar-cleaning-property-management/100090615077315/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <motion.img
               whileInView={{ scale: [0, 1] }}
               whileHover={{ scale: [1, 0.9] }}
@@ -84,22 +77,26 @@ const EmailSection = () => {
               width={40}
               height={40}
             />
-          </Link>
+          </a>
         </div>
       </div>
       <div className="z-10 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
-        {emailSubmitted ? (
-          <p className="mt-2 text-sm text-green-500">Email sent successfully!</p>
-        ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+        {!isFormSubmitted ? (
+          <form
+            className="app__footer-form app__flex"
+            action="https://formsubmit.co/popescu.romeo9@gmail.com"
+            method="POST"
+            target="_blank"
+          >
             <div className="mb-6">
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-black">
                 Your email
               </label>
               <input
-                name="email"
                 type="email"
-                id="email"
+                name="email"
+                value={email}
+                onChange={handleChangeInput}
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="jacob@google.com"
@@ -110,9 +107,10 @@ const EmailSection = () => {
                 Subject
               </label>
               <input
+                type="subject"
                 name="subject"
-                type="text"
-                id="subject"
+                value={subject}
+                onChange={handleChangeInput}
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Just saying hi"
@@ -123,16 +121,33 @@ const EmailSection = () => {
                 Message
               </label>
               <textarea
+                value={message}
                 name="message"
-                id="message"
+                onChange={handleChangeInput}
+                required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block min-h-200 w-full p-2.5 "
                 placeholder="Let's talk about..."
               />
             </div>
-            <button type="submit" className="bg-primary-500 hover:bg-primary-600 text-black font-medium py-2.5 px-5 rounded-lg w-full">
-              Send Message
-            </button>
+
+            {true ? (
+              <button className="bg-primary-500 hover:bg-primary-600 text-black font-medium py-2.5 px-5 rounded-lg w-full">
+                {'Send Message'}
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="bg-primary-500 hover:bg-primary-600 text-black font-medium py-2.5 px-5 rounded-lg w-full"
+                onClick={handleSubmit}
+              >
+                {loading ? 'Sending' : 'Send Message'}
+              </button>
+            )}
           </form>
+        ) : (
+          <div>
+            <h3 className="section-title ">Thanks for reaching out</h3>
+          </div>
         )}
       </div>
     </section>

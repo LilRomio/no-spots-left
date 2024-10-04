@@ -26,7 +26,7 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-8 text-center place-self-center sm:text-left justify-self-start"
         >
-          <h1 className="hidden mb-4 text-4xl font-extrabold text-black md:block sm:text-s lg:text-5xl lg:leading-normal">
+          <h1 className="hidden mb-4 text-4xl font-extrabold text-black lg:block sm:text-s lg:text-5xl lg:leading-normal">
             <br></br>
             <TypeAnimation
               sequence={[
@@ -51,9 +51,10 @@ const HeroSection = () => {
             We Clean Like Your Mum&apos;s Coming Over!
           </h2>
           <p className="bg-gradient-to-b font-bold from-black to-[#001E80] text-transparent bg-clip-text sm:text-2xl mb-6 lg:text-2xl mt-6">
-            At No Spots Left, we take cleaning as seriously as a cuppa tea. From stubborn stains to hidden dust bunnies, we handle the mess so you can
-            put your feet up. Our expert team ensures every nook and cranny is spotless, leaving your space looking as fresh as a daisy. Whether it’s
-            your home, office, or somewhere in between, we’ve got you covered – no fuss, no spots, just pristine results.
+            At No Spots Left, we take cleaning as seriously as a cuppa tea. From stubborn stains to hidden dust bunnies,
+            we handle the mess so you can put your feet up. Our expert team ensures every nook and cranny is spotless,
+            leaving your space looking as fresh as a daisy. Whether it’s your home, office, or somewhere in between,
+            we’ve got you covered – no fuss, no spots, just pristine results.
           </p>
           <div>
             <Link href="/#contact" className="btn btn-primary">
@@ -65,7 +66,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="absolute hidden col-span-4 mt-4 top-20 md:block lg:mt-0"
+          className="absolute hidden col-span-4 mt-4 top-20 lg:block lg:mt-0"
         >
           <motion.img
             src={Sponge.src}
