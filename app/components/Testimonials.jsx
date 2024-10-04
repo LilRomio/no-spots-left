@@ -9,64 +9,63 @@ import avatar7 from '../assets/avatar-7.png';
 import avatar8 from '../assets/avatar-8.png';
 import avatar9 from '../assets/avatar-9.png';
 import Image from 'next/image';
-import { twMerge } from 'tailwind-merge';
 import { motion } from 'framer-motion';
 import React from 'react';
 
 const testimonials = [
   {
-    text: 'As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.',
+    text: 'No Spots Left transformed our home! They took care of every corner with such precision and care.',
     imageSrc: avatar1.src,
-    name: 'Jamie Rivera',
-    username: '@jamietechguru00',
+    name: 'Sophie',
+    location: 'Guildford',
   },
   {
-    text: "Our team's productivity has skyrocketed since we started using this tool. ",
+    text: 'I’ve never seen my office this clean before. They were quick, professional, and left no stone unturned!',
     imageSrc: avatar2.src,
-    name: 'Josh Smith',
-    username: '@jjsmith',
+    name: 'Oliver',
+    location: 'Woking',
   },
   {
-    text: 'This app has completely transformed how I manage my projects and deadlines.',
+    text: 'Top-notch service! The attention to detail was impressive, and our house feels brand new.',
     imageSrc: avatar3.src,
-    name: 'Morgan Lee',
-    username: '@morganleewhiz',
+    name: 'George',
+    location: 'Godalming',
   },
   {
-    text: 'I was amazed at how quickly we were able to integrate this app into our workflow.',
+    text: 'I couldn’t believe the difference! No Spots Left exceeded all my expectations. Highly recommend!',
     imageSrc: avatar4.src,
-    name: 'Casey Jordan',
-    username: '@caseyj',
+    name: 'James',
+    location: 'Farnham',
   },
   {
-    text: 'Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.',
+    text: 'Our carpets haven’t looked this good in years. Amazing work by the team at No Spots Left!',
     imageSrc: avatar5.src,
-    name: 'Taylor Kim',
-    username: '@taylorkimm',
+    name: 'Charlotte',
+    location: 'Leatherhead',
   },
   {
-    text: 'The customizability and integration capabilities of this app are top-notch.',
+    text: 'The cleaners were friendly, efficient, and thorough. A truly fantastic experience!',
     imageSrc: avatar6.src,
-    name: 'Riley Smith',
-    username: '@rileysmith1',
+    name: 'Mia',
+    location: 'Camberley',
   },
   {
-    text: 'Adopting this app for our team has streamlined our project management and improved communication across the board.',
+    text: 'I was hesitant at first, but now I can’t imagine using any other cleaning service.',
     imageSrc: avatar7.src,
-    name: 'Jordan Patels',
-    username: '@jpatelsdesign',
+    name: 'Paulo',
+    location: 'Epsom',
   },
   {
-    text: 'With this app, we can easily assign tasks, track progress, and manage documents all in one place.',
+    text: 'Everything sparkled! They truly live up to their name. I’m definitely booking again.',
     imageSrc: avatar8.src,
-    name: 'Sam Dawson',
-    username: '@dawsontechtips',
+    name: 'Emily',
+    location: 'Dorking',
   },
   {
-    text: 'Its user-friendly interface and robust features support our diverse needs.',
+    text: 'Professional, reliable, and the cleanest my house has ever been!',
     imageSrc: avatar9.src,
-    name: 'Casey Harper',
-    username: '@casey09',
+    name: 'Liam',
+    location: 'Reigate',
   },
 ];
 
@@ -90,12 +89,17 @@ const TestimonialsColumn = ({ className, testimonials, duration }) => (
     >
       {[...new Array(2)].fill(0).map((_, index) => (
         <React.Fragment key={index}>
-          {testimonials.map(({ text, imageSrc, name }) => (
-            <div className="p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full" key={name}>
+          {testimonials.map(({ text, imageSrc, name, location }) => (
+            <div
+              className="p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full"
+              key={name}
+            >
               <div>{text}</div>
               <div className="flex items-center gap-2 mt-5">
                 <Image src={imageSrc} alt={name} width={40} height={40} className="w-10 h-10 rounded-full" />
-                <div className="font-medium leading-5 tracking-tight">{name}</div>
+                <div className="font-medium leading-5 tracking-tight">
+                  {name} <span className="text-gray-500">({location})</span>
+                </div>
               </div>
             </div>
           ))}
@@ -114,8 +118,9 @@ const Testimonials = () => {
             What Our Clients Say
           </h2>
           <p className="mt-5 section-description">
-            Nothing speaks louder than the praise of our happy clients. From spotless homes to gleaming offices, our customers love the detail and
-            dedication we bring to every clean. Hear why they trust us to keep their spaces shining!
+            Nothing speaks louder than the praise of our happy clients. From spotless homes to gleaming offices, our
+            customers love the detail and dedication we bring to every clean. Hear why they trust us to keep their
+            spaces shining!
           </p>
         </div>
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[738px] overflow-hidden mt-10">
