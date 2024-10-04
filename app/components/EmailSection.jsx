@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 const EmailSection = () => {
   const [formData, setFormData] = useState({
     email: '',
+    phone: '',
     subject: '',
     message: '',
   });
@@ -17,7 +18,7 @@ const EmailSection = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const { email, subject, message } = formData;
+  const { email, phone, subject, message } = formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -100,6 +101,20 @@ const EmailSection = () => {
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="jacob@google.com"
+              />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="telephone" className="block mb-2 text-sm font-medium text-black">
+                Your Telephone Number
+              </label>
+              <input
+                type="number"
+                name="phone"
+                value={phone}
+                onChange={handleChangeInput}
+                required
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                placeholder="Telephone"
               />
             </div>
             <div className="mb-6">

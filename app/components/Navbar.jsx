@@ -63,11 +63,11 @@ const Navbar = () => {
     <div className="fixed top-0 left-0 z-50 w-full bg-opacity-70 backdrop-blur-md">
       <div
         className="max-w-[1300px] mx-auto flex justify-between text-black
-        text-xl items-center px-12 h-20"
+        text-xl items-center px-3 h-20"
       >
-        <Link href={'/'}>
-          <Image src={Logo} alt="No Spots Left Logo" height={40} width={60} />
-        </Link>
+        <a href="#heroSection">
+          <Image src={Logo} alt="No Spots Left Logo" height={40} width={80} />
+        </a>
 
         <div className="hidden menu md:block md:w-auto" id="navbar">
           <ul className="flex p-4 mt-0 md:p-0 md:flex-row md:space-x-8">
@@ -92,7 +92,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Toggle Button */}
-        <div onClick={toggleNav} className="z-50 text-black/60 md:hidden">
+        <div onClick={toggleNav} className="z-50 text-[#18191E] md:hidden">
           {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
         </div>
 

@@ -2,6 +2,7 @@
 import React, { useTransition, useState } from 'react';
 import Image from 'next/image';
 import TabButton from './TabButton';
+import { motion } from 'framer-motion';
 
 const TAB_DATA = [
   {
@@ -15,7 +16,6 @@ const TAB_DATA = [
           it&apos;s regular weekly cleaning or a one-off deep clean, our team will handle everything:
         </h1>
         <li>Thorough Cleaning: Every room will be dusted, vacuumed, and scrubbed to perfection.</li>
-
         <li>
           Kitchen and Bathroom Detailing: We pay special attention to these high-use areas, leaving them sanitized and
           sparkling.
@@ -37,7 +37,6 @@ const TAB_DATA = [
           offers customizable office cleaning services designed to maintain a pristine and healthy work environment:
         </h1>
         <li>Daily, Weekly, or Monthly Services: Choose a cleaning frequency that suits your office needs.</li>
-
         <li>
           Disinfection and Sanitization: We focus on high-traffic areas like desks, breakrooms, and restrooms to keep
           your workplace germ-free.
@@ -67,7 +66,6 @@ const TAB_DATA = [
           Complete Property Cleaning: Every nook and cranny, including carpets, floors, walls, and windows, will be
           professionally cleaned.
         </li>
-
         <li>
           Appliance Cleaning: Deep cleaning of ovens, fridges, and other appliances to leave them looking like new.
         </li>
@@ -85,7 +83,6 @@ const TAB_DATA = [
           often overlooked during routine cleans:
         </h1>
         <li>Behind Furniture and Appliances: Cleaning under and behind heavy furniture or kitchen appliances.</li>
-
         <li>Grout and Tile Scrubbing: Intensive cleaning to remove grime from tile grout in bathrooms and kitchens.</li>
         <li>Detailing of Light Fixtures and Ceiling Fans: Dusting and cleaning hard-to-reach areas.</li>
       </ul>
@@ -101,7 +98,6 @@ const TAB_DATA = [
           clean for soft furnishings:
         </h1>
         <li>Carpet Steam Cleaning: Deep cleaning to remove stains, dirt, and allergens from carpets.</li>
-
         <li>Upholstery Cleaning: Cleaning sofas, chairs, and curtains to refresh fabrics and remove stains.</li>
         <li>Stain and Odor Removal: Using eco-friendly solutions to remove tough stains and lingering smells.</li>
       </ul>
@@ -116,7 +112,6 @@ const TAB_DATA = [
           After renovation or construction, a property often needs thorough cleaning to remove debris and dust:
         </h1>
         <li>Debris Removal: Cleaning and removing dust, drywall particles, and leftover materials.</li>
-
         <li>Window and Surface Cleaning: Making sure windows, countertops, and floors are spotless after the mess.</li>
         <li>Detail-Oriented Finish: Ensuring newly installed fixtures are clean and presentable.</li>
       </ul>
@@ -131,7 +126,6 @@ const TAB_DATA = [
           Ideal for outdoor cleaning, pressure washing removes dirt, mold, and grime from exterior surfaces:
         </h1>
         <li>Driveways and Patios: Pressure washing stone, concrete, and tiled surfaces to remove buildup.</li>
-
         <li>
           House Exterior and Fences: Cleaning siding, fences, and other exterior areas that require high-powered
           cleaning.
@@ -151,7 +145,6 @@ const TAB_DATA = [
           Turnover Service: Preparing the property between guests, including laundry, replenishing supplies, and
           ensuring the space is guest-ready.
         </li>
-
         <li>
           Check-In/Out Inspections: Conducting a thorough inspection to ensure no damage and that everything is in
           order.
@@ -164,11 +157,10 @@ const TAB_DATA = [
     id: 'commercial',
     content: (
       <ul className="pl-2 list-disc ">
-        <h1 className="section-description ">
+        <h1 className="section-description">
           Expand your commercial services to include retail shops, restaurants, and other business premises:
         </h1>
         <li>Storefront and Display Cleaning: Ensuring that windows and displays are spotless to attract customers.</li>
-
         <li>
           Restroom and Kitchen Cleaning: Providing a regular cleaning service for high-traffic restrooms and kitchen
           areas.
@@ -203,45 +195,50 @@ const WhatWeDoSection = () => {
             products and top-tier equipment guarantees that your space is not only clean but safe for your family,
             employees, and guests. Here&apos;s a glimpse of the services we offer:
           </p>
+
+          {/* Call-to-action to make the tabs more engaging */}
+          <p className="mt-6 text-lg font-semibold text-gray-700">Click a service to explore more!</p>
+
           <div className="flex flex-col justify-start mt-8 lg:flex-row">
             <TabButton selectTab={() => handleTabChange('domestic')} active={tab === 'domestic'}>
-              {' '}
-              Domestic Cleaning{' '}
+              Domestic Cleaning
             </TabButton>
             <TabButton selectTab={() => handleTabChange('office')} active={tab === 'office'}>
-              {' '}
-              Office Cleaning{' '}
+              Office Cleaning
             </TabButton>
             <TabButton selectTab={() => handleTabChange('endTenancy')} active={tab === 'endTenancy'}>
-              {' '}
-              End of Tenancy Cleaning{' '}
+              End of Tenancy
             </TabButton>
             <TabButton selectTab={() => handleTabChange('deepCleaning')} active={tab === 'deepCleaning'}>
-              {' '}
-              Deep Cleaning Services{' '}
+              Deep Cleaning
             </TabButton>
             <TabButton selectTab={() => handleTabChange('carpet')} active={tab === 'carpet'}>
-              {' '}
-              Carpet and Upholstery Cleaning{' '}
+              Carpet Cleaning
             </TabButton>
             <TabButton selectTab={() => handleTabChange('construction')} active={tab === 'construction'}>
-              {' '}
-              Post-Construction Cleaning{' '}
+              Post-Construction
             </TabButton>
             <TabButton selectTab={() => handleTabChange('pressure')} active={tab === 'pressure'}>
-              {' '}
-              Pressure Washing Services{' '}
+              Pressure Washing
             </TabButton>
             <TabButton selectTab={() => handleTabChange('airBnb')} active={tab === 'airBnb'}>
-              {' '}
-              Airbnb Rental Cleaning{' '}
+              Airbnb Cleaning
             </TabButton>
             <TabButton selectTab={() => handleTabChange('commercial')} active={tab === 'commercial'}>
-              {' '}
-              Commercial and Retail Cleaning{' '}
+              Commercial Cleaning
             </TabButton>
           </div>
-          <div className="mt-8 ">{TAB_DATA.find((t) => t.id === tab).content}</div>
+
+          <motion.div
+            key={tab}
+            className="mt-8"
+            initial={{ opacity: 0, translateY: 20 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {TAB_DATA.find((t) => t.id === tab).content}
+          </motion.div>
         </div>
       </div>
     </section>
