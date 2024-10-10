@@ -1,8 +1,7 @@
 'use client';
 import React, { useTransition, useState } from 'react';
-import Image from 'next/image';
-import TabButton from './TabButton';
 import { motion } from 'framer-motion';
+import TabButton from './TabButton';
 
 const TAB_DATA = [
   {
@@ -28,7 +27,7 @@ const TAB_DATA = [
     ),
   },
   {
-    title: 'Office Cleaning',
+    title: 'Commercial and Retail Cleaning',
     id: 'office',
     content: (
       <ul className="pl-2 list-disc">
@@ -103,20 +102,7 @@ const TAB_DATA = [
       </ul>
     ),
   },
-  {
-    title: 'Post-Construction Cleaning',
-    id: 'construction',
-    content: (
-      <ul className="pl-2 list-disc">
-        <h1 className="section-description">
-          After renovation or construction, a property often needs thorough cleaning to remove debris and dust:
-        </h1>
-        <li>Debris Removal: Cleaning and removing dust, drywall particles, and leftover materials.</li>
-        <li>Window and Surface Cleaning: Making sure windows, countertops, and floors are spotless after the mess.</li>
-        <li>Detail-Oriented Finish: Ensuring newly installed fixtures are clean and presentable.</li>
-      </ul>
-    ),
-  },
+
   {
     title: 'Pressure Washing Services',
     id: 'pressure',
@@ -152,23 +138,6 @@ const TAB_DATA = [
       </ul>
     ),
   },
-  {
-    title: 'Commercial and Retail Cleaning',
-    id: 'commercial',
-    content: (
-      <ul className="pl-2 list-disc ">
-        <h1 className="section-description">
-          Expand your commercial services to include retail shops, restaurants, and other business premises:
-        </h1>
-        <li>Storefront and Display Cleaning: Ensuring that windows and displays are spotless to attract customers.</li>
-        <li>
-          Restroom and Kitchen Cleaning: Providing a regular cleaning service for high-traffic restrooms and kitchen
-          areas.
-        </li>
-        <li>Floor Care and Polishing: Keeping floors in retail spaces looking clean and polished.</li>
-      </ul>
-    ),
-  },
 ];
 
 const WhatWeDoSection = () => {
@@ -182,64 +151,48 @@ const WhatWeDoSection = () => {
   };
 
   return (
-    <section id="whatWeDo" className="text-black">
-      <div className="items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
-        <div className="flex flex-col h-full mt-4 text-left md:mt-0">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
-            What We Do
-          </h2>
-          <p className="text-lg md:text-xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">
-            At No Spots Left, we provide a spotless, professional, and reliable cleaning service tailored to meet your
-            every need. Whether it&apos;s your home, office, or preparing a rental property for its next tenant, our
-            expert cleaning team ensures every corner is left sparkling. Our commitment to using eco-friendly cleaning
-            products and top-tier equipment guarantees that your space is not only clean but safe for your family,
-            employees, and guests. Here&apos;s a glimpse of the services we offer:
-          </p>
+    <section id="whatWeDo" className="items-center px-4 py-8 text-black">
+      <h2 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
+        What We Do
+      </h2>
+      <p className="text-lg md:text-xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">
+        At No Spots Left, we provide a spotless, professional, and reliable cleaning service...
+      </p>
 
-          {/* Call-to-action to make the tabs more engaging */}
-          <p className="mt-6 text-lg font-semibold text-gray-700">Click a service to explore more!</p>
+      <div className="flex flex-col justify-between mt-8 md:flex-row">
+        {/* Tab Buttons and Content on Mobile */}
+        <div className="flex flex-col space-y-4 md:w-1/4">
+          {TAB_DATA.map((tabItem) => (
+            <div key={tabItem.id}>
+              <TabButton selectTab={() => handleTabChange(tabItem.id)} active={tab === tabItem.id}>
+                {tabItem.title}
+              </TabButton>
 
-          <div className="flex flex-col justify-start mt-8 lg:flex-row">
-            <TabButton selectTab={() => handleTabChange('domestic')} active={tab === 'domestic'}>
-              Domestic Cleaning
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('office')} active={tab === 'office'}>
-              Office Cleaning
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('endTenancy')} active={tab === 'endTenancy'}>
-              End of Tenancy
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('deepCleaning')} active={tab === 'deepCleaning'}>
-              Deep Cleaning
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('carpet')} active={tab === 'carpet'}>
-              Carpet Cleaning
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('construction')} active={tab === 'construction'}>
-              Post-Construction
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('pressure')} active={tab === 'pressure'}>
-              Pressure Washing
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('airBnb')} active={tab === 'airBnb'}>
-              Airbnb Cleaning
-            </TabButton>
-            <TabButton selectTab={() => handleTabChange('commercial')} active={tab === 'commercial'}>
-              Commercial Cleaning
-            </TabButton>
-          </div>
-
-          <motion.div
-            key={tab}
-            className="mt-8"
-            initial={{ opacity: 0, translateY: 20 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            {TAB_DATA.find((t) => t.id === tab).content}
-          </motion.div>
+              {/* Show content immediately after each tab on mobile */}
+              <motion.div
+                className={`md:hidden ${tab === tabItem.id ? 'block' : 'hidden'}`}
+                initial={{ opacity: 0, translateY: 20 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                exit={{ opacity: 0, translateY: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {tabItem.content}
+              </motion.div>
+            </div>
+          ))}
         </div>
+
+        {/* Tab Content on Desktop */}
+        <motion.div
+          key={tab}
+          className="hidden md:block md:w-3/4"
+          initial={{ opacity: 0, translateY: 20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          exit={{ opacity: 0, translateY: -20 }}
+          transition={{ duration: 0.3 }}
+        >
+          {TAB_DATA.find((t) => t.id === tab).content}
+        </motion.div>
       </div>
     </section>
   );

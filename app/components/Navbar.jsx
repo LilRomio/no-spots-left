@@ -2,37 +2,52 @@
 
 import React, { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Logo from '../assets/NoSpotsLeft-logo.png';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import NavLink from './NavLink';
 
+// Main navigation links
 const navLinks = [
   {
     title: 'Home',
     path: 'heroSection',
-    isScroll: true, // Regular navigation
+    isScroll: true,
   },
   {
     title: 'What We Do',
     path: 'whatWeDo',
-    isScroll: true, // Smooth scroll navigation
+    isScroll: true,
+    hasSubLinks: true,
+    subLinks: [
+      { title: 'Domestic Cleaning', path: 'domestic' },
+      { title: 'Office Cleaning', path: 'office' },
+      { title: 'End of Tenancy Cleaning', path: 'endTenancy' },
+      { title: 'Deep Cleaning Services', path: 'deepCleaning' },
+      { title: 'Carpet & Upholstery Cleaning', path: 'carpet' },
+      { title: 'Post-Construction Cleaning', path: 'construction' },
+      { title: 'Pressure Washing', path: 'pressure' },
+      { title: 'Airbnb Rental Cleaning', path: 'airBnb' },
+      { title: 'Commercial & Retail Cleaning', path: 'commercial' },
+    ],
   },
   {
     title: 'Testimonials',
     path: 'testimonials',
-    isScroll: true, // Smooth scroll navigation
+    isScroll: true,
   },
   {
     title: 'Contact',
     path: 'contact',
-    isScroll: true, // Smooth scroll navigation
+    isScroll: true,
   },
 ];
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // State for dropdown
 
   const toggleNav = () => {
     setNav(!nav);
@@ -40,6 +55,10 @@ const Navbar = () => {
 
   const closeNav = () => {
     setNav(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen); // Toggle dropdown open/close
   };
 
   const menuVariants = {
@@ -66,9 +85,10 @@ const Navbar = () => {
         text-xl items-center px-3 h-20"
       >
         <a href="#heroSection">
-          <Image src={Logo} alt="No Spots Left Logo" height={40} width={80} />
+          <Image src={Logo} alt="No Spots Left Logo" height={40} width={100} />
         </a>
 
+        {/* Desktop Menu */}
         <div className="hidden menu md:block md:w-auto" id="navbar">
           <ul className="flex p-4 mt-0 md:p-0 md:flex-row md:space-x-8">
             {navLinks.map((link, index) => (
@@ -108,16 +128,58 @@ const Navbar = () => {
               {navLinks.map((link, index) => (
                 <li key={index}>
                   {link.isScroll ? (
-                    <Link
-                      to={link.path}
-                      smooth={true}
-                      offset={-70} // Adjust according to your fixed navbar height
-                      duration={500}
-                      className="cursor-pointer"
-                      onClick={closeNav} // Close menu after clicking
-                    >
-                      {link.title}
-                    </Link>
+                    <>
+                      {link.hasSubLinks ? (
+                        <>
+                          <div className="flex items-center justify-center">
+                            <Link
+                              to={link.path}
+                              smooth={true}
+                              offset={-70}
+                              duration={500}
+                              className="cursor-pointer"
+                              onClick={toggleDropdown} // Toggle dropdown
+                            >
+                              {link.title}
+                            </Link>
+                            <button onClick={toggleDropdown} className="ml-2">
+                              {dropdownOpen ? <FaChevronUp /> : <FaChevronDown />}
+                            </button>
+                          </div>
+
+                          {/* Sub-links for "What We Do" */}
+                          {dropdownOpen && (
+                            <ul className="mt-4 space-y-4 text-xl">
+                              {link.subLinks.map((subLink, subIndex) => (
+                                <li key={subIndex}>
+                                  <Link
+                                    to={subLink.path}
+                                    smooth={true}
+                                    offset={-70}
+                                    duration={500}
+                                    className="cursor-pointer"
+                                    onClick={closeNav} // Close menu after clicking sub-link
+                                  >
+                                    {subLink.title}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </>
+                      ) : (
+                        <Link
+                          to={link.path}
+                          smooth={true}
+                          offset={-70}
+                          duration={500}
+                          className="cursor-pointer"
+                          onClick={closeNav}
+                        >
+                          {link.title}
+                        </Link>
+                      )}
+                    </>
                   ) : (
                     <NavLink href={link.path} title={link.title} onClick={closeNav} />
                   )}

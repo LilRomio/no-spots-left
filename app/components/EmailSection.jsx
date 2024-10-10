@@ -128,7 +128,7 @@ const EmailSection = () => {
                 onChange={handleChangeInput}
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Just saying hi"
+                placeholder="Type the service you require"
               />
             </div>
             <div className="mb-6">
