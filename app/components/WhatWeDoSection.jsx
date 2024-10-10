@@ -2,6 +2,7 @@
 import React, { useTransition, useState } from 'react';
 import { motion } from 'framer-motion';
 import TabButton from './TabButton';
+import { AppWrap, MotionWrap } from '../wrapper';
 
 const TAB_DATA = [
   {
@@ -198,4 +199,4 @@ const WhatWeDoSection = () => {
   );
 };
 
-export default WhatWeDoSection;
+export default AppWrap(MotionWrap(WhatWeDoSection, 'app__whatWeDo'), 'whatWeDo');

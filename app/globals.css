@@ -16,6 +16,14 @@
   }
 }
 
+.app__flex {
+  @apply flex items-center justify-center;
+}
+
+.app__container {
+  @apply w-[100%] min-h-[100vh] flex flex-row;
+}
+
 .btn {
   @apply inline-flex items-center justify-center px-4 py-2 font-medium tracking-tight rounded-lg;
 }

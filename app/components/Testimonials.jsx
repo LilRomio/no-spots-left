@@ -11,6 +11,7 @@ import avatar9 from '../assets/avatar-9.png';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { AppWrap, MotionWrap } from '../wrapper';
 
 const testimonials = [
   {
@@ -133,4 +134,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default AppWrap(MotionWrap(Testimonials, 'app__testimonials'), 'testimonials');

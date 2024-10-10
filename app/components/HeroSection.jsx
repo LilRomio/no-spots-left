@@ -4,6 +4,7 @@ import { TypeAnimation } from 'react-type-animation';
 import { motion, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import Sponge from '../assets/sponge.png';
+import { AppWrap, MotionWrap } from '../wrapper';
 
 const HeroSection = () => {
   const heroRef = useRef(null);
@@ -111,4 +112,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default AppWrap(MotionWrap(HeroSection, 'app__hero'), 'heroSection');

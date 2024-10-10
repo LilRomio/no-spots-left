@@ -83,12 +83,7 @@ const EmailSection = () => {
       </div>
       <div className="z-10 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
         {!isFormSubmitted ? (
-          <form
-            className="app__footer-form app__flex"
-            action="https://formsubmit.co/popescu.romeo9@gmail.com"
-            method="POST"
-            target="_blank"
-          >
+          <form action="https://formsubmit.co/popescu.romeo9@gmail.com" method="POST" target="_blank">
             <div className="mb-6">
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-black">
                 Your email

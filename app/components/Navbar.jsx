@@ -106,7 +106,7 @@ const Navbar = () => {
         text-xl items-center px-3 h-20"
       >
         <a href="#heroSection">
-          <Image src={Logo} alt="No Spots Left Logo" height={40} width={100} />
+          <Image src={Logo} alt="No Spots Left Logo" height={40} width={110} />
         </a>
 
         {/* Desktop Menu */}
