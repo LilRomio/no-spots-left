@@ -54,8 +54,8 @@ const HeroSection = () => {
           {/* Masked Text Animation */}
           <div className="relative mt-6">
             <motion.div
-              initial={{ x: 100 }}
-              animate={{ x: -1200 }}
+              initial={{ x: 175 }}
+              animate={{ x: -920 }}
               transition={{
                 duration: animationDuration,
                 repeat: Infinity,
@@ -68,23 +68,30 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Text that is revealed by the sponge */}
-            <motion.div
-              style={{
-                clipPath: 'inset(0% 100% 0% 0%)',
-              }}
-              animate={{
-                clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 100% 0% 0%)'],
-              }}
-              transition={{
-                duration: animationDuration,
-                repeat: Infinity,
-                repeatType: 'mirror',
-                ease: 'easeInOut',
-              }}
-              className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text"
-            >
-              We Clean Like Your Mum&apos;s Coming Over!
-            </motion.div>
+
+            <div className="flex flex-col items-center gap-2 xl:flex-row">
+              <div className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
+                We Clean
+              </div>
+
+              <motion.div
+                style={{
+                  clipPath: 'inset(0% 100% 0% 0%)',
+                }}
+                animate={{
+                  clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 100% 0% 0%)'],
+                }}
+                transition={{
+                  duration: animationDuration,
+                  repeat: Infinity,
+                  repeatType: 'mirror',
+                  ease: 'easeInOut',
+                }}
+                className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text"
+              >
+                Like Your Mum&apos;s Coming Over!
+              </motion.div>
+            </div>
           </div>
 
           <p className="bg-gradient-to-b font-bold from-black to-[#001E80] text-transparent bg-clip-text sm:text-2xl mb-6 lg:text-2xl mt-6">
