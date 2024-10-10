@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Logo from '../assets/NoSpotsLeft-logo.png';
@@ -47,7 +47,9 @@ const navLinks = [
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); // State for dropdown
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [visible, setVisible] = useState(true); // Track visibility
+  const [prevScrollPos, setPrevScrollPos] = useState(0); // Track previous scroll position
 
   const toggleNav = () => {
     setNav(!nav);
@@ -58,7 +60,7 @@ const Navbar = () => {
   };
 
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen); // Toggle dropdown open/close
+    setDropdownOpen(!dropdownOpen);
   };
 
   const menuVariants = {
@@ -78,8 +80,27 @@ const Navbar = () => {
     },
   };
 
+  // Handle scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10); // Show navbar if scrolling up or at top
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
   return (
-    <div className="fixed top-0 left-0 z-50 w-full bg-opacity-70 backdrop-blur-md">
+    <div
+      className={`fixed top-0 left-0 z-50 w-full bg-opacity-70 backdrop-blur-md transition-transform ${
+        visible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div
         className="max-w-[1300px] mx-auto flex justify-between text-black
         text-xl items-center px-3 h-20"
@@ -138,7 +159,7 @@ const Navbar = () => {
                               offset={-70}
                               duration={500}
                               className="cursor-pointer"
-                              onClick={toggleDropdown} // Toggle dropdown
+                              onClick={toggleDropdown}
                             >
                               {link.title}
                             </Link>
@@ -158,7 +179,7 @@ const Navbar = () => {
                                     offset={-70}
                                     duration={500}
                                     className="cursor-pointer"
-                                    onClick={closeNav} // Close menu after clicking sub-link
+                                    onClick={closeNav}
                                   >
                                     {subLink.title}
                                   </Link>
