@@ -157,7 +157,11 @@ const WhatWeDoSection = () => {
         What We Do
       </h2>
       <p className="text-lg md:text-xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">
-        At No Spots Left, we provide a spotless, professional, and reliable cleaning service...
+        At No Spots Left, we provide a spotless, professional, and reliable cleaning service tailored to meet your every
+        need. Whether it&apos;s your home, office, or preparing a rental property for its next tenant, our expert
+        cleaning team ensures every corner is left sparkling. Our commitment to using eco-friendly cleaning products and
+        top-tier equipment guarantees that your space is not only clean but safe for your family, employees, and guests.
+        Here&apos;s a glimpse of the services we offer:
       </p>
 
       <div className="flex flex-col justify-between mt-8 md:flex-row">

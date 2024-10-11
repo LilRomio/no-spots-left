@@ -8,7 +8,7 @@ const SocialMedia = () => {
   return (
     <div className="flex flex-col items-center justify-center hidden p-4 md:flex">
       <div className="w-[40px] h-[40px] rounded-sm bg-white my-1 flex justify-center items-center">
-        <a href="tel:0733273674 " target="_blank" rel="noreferrer">
+        <a href="tel:07570532554 " target="_blank" rel="noreferrer">
           <motion.div
             whileInView={{ scale: [0, 1] }}
             whileHover={{ scale: [1, 0.9] }}
@@ -20,7 +20,7 @@ const SocialMedia = () => {
         </a>
       </div>
       <div className="w-[40px] h-[40px] rounded-sm bg-white my-1 flex justify-center items-center">
-        <a href="whatsapp://send?text=Hello World!&phone=+40733273674" target="_blank" rel="noreferrer">
+        <a href="whatsapp://send?text=Hello World!&phone=+447570532554" target="_blank" rel="noreferrer">
           <motion.div
             whileInView={{ scale: [0, 1] }}
             whileHover={{ scale: [1, 0.9] }}
@@ -32,11 +32,7 @@ const SocialMedia = () => {
         </a>
       </div>
       <div className="w-[40px] h-[40px] rounded-sm bg-white my-1 flex justify-center items-center">
-        <a
-          href="https://www.facebook.com/people/Gstar-cleaning-property-management/100090615077315/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
           <motion.div
             whileInView={{ scale: [0, 1] }}
             whileHover={{ scale: [1, 0.9] }}
@@ -48,7 +44,7 @@ const SocialMedia = () => {
         </a>
       </div>
       <div className="w-[40px] h-[40px] rounded-sm bg-white my-1 flex justify-center items-center">
-        <a href="mailto:giurgealena@gmail.com" target="_blank" rel="noreferrer">
+        <a href="mailto:popescu.romeo9@gmail.com" target="_blank" rel="noreferrer">
           <motion.div
             whileInView={{ scale: [0, 1] }}
             whileHover={{ scale: [1, 0.9] }}
