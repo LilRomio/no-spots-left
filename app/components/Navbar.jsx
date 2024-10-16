@@ -102,8 +102,8 @@ const Navbar = () => {
       }`}
     >
       <div
-        className="max-w-[1300px] lg:max-w-[1450px] mx-auto flex justify-between text-black
-        text-xl items-center h-20 "
+        className="max-w-[95%] lg:max-w-[1300px] xl:max-w-[1450px] mx-auto flex justify-between text-black
+        text-xl items-center h-20"
       >
         <a href="#heroSection">
           <Image src={Logo} alt="No Spots Left Logo" height={40} width={110} />

@@ -9,7 +9,7 @@ const TAB_DATA = [
     title: 'Domestic Cleaning',
     id: 'domestic',
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc md:text-xl">
         <h1 className="section-description">
           Your home is your sanctuary, and we treat it that way. Our domestic cleaning service offers everything from
           routine cleaning to deep cleans, ensuring your living space remains fresh, comfortable, and pristine. Whether
@@ -31,7 +31,7 @@ const TAB_DATA = [
     title: 'Commercial and Retail Cleaning',
     id: 'office',
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc md:text-xl">
         <h1 className="section-description">
           A clean office promotes productivity and leaves a lasting impression on clients and employees. No Spots Left
           offers customizable office cleaning services designed to maintain a pristine and healthy work environment:
@@ -57,7 +57,7 @@ const TAB_DATA = [
     title: 'End of Tenancy Cleaning',
     id: 'endTenancy',
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc md:text-xl">
         <h1 className="section-description">
           Moving out? Leave the cleaning to us. We provide comprehensive end-of-tenancy cleaning services that ensure
           the property is spotless for the next tenants or to meet the landlord&apos;s expectations. Our service covers:
@@ -77,7 +77,7 @@ const TAB_DATA = [
     title: 'Deep Cleaning Services',
     id: 'deepCleaning',
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc md:text-xl">
         <h1 className="section-description">
           Ideal for spring cleaning or special occasions, this service goes beyond standard cleaning to tackle areas
           often overlooked during routine cleans:
@@ -92,7 +92,7 @@ const TAB_DATA = [
     title: 'Carpet and Upholstery Cleaning',
     id: 'carpet',
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc md:text-xl">
         <h1 className="section-description">
           Over time, carpets and upholstery can trap dirt, allergens, and odors. This specialized service ensures a deep
           clean for soft furnishings:
@@ -108,7 +108,7 @@ const TAB_DATA = [
     title: 'Pressure Washing Services',
     id: 'pressure',
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc md:text-xl">
         <h1 className="section-description">
           Ideal for outdoor cleaning, pressure washing removes dirt, mold, and grime from exterior surfaces:
         </h1>
@@ -124,7 +124,7 @@ const TAB_DATA = [
     title: 'Airbnb Rental Cleaning',
     id: 'airBnb',
     content: (
-      <ul className="pl-2 list-disc">
+      <ul className="pl-2 list-disc md:text-xl">
         <h1 className="section-description">
           Offer a specialized cleaning service tailored to short-term rental properties like Airbnb listings:
         </h1>
@@ -142,12 +142,12 @@ const TAB_DATA = [
 ];
 
 const WhatWeDoSection = () => {
-  const [tab, setTab] = useState('domestic');
+  const [tab, setTab] = useState(null); // No tab selected on initial load
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
     startTransition(() => {
-      setTab(id);
+      setTab((prevTab) => (prevTab === id ? null : id)); // Toggle tab open/close
     });
   };
 
@@ -164,8 +164,8 @@ const WhatWeDoSection = () => {
         Here&apos;s a glimpse of the services we offer:
       </p>
 
-      <div className="flex flex-col justify-between mt-8 md:flex-row">
-        {/* Tab Buttons and Content on Mobile */}
+      <div className="flex flex-col justify-between mt-8 md:gap-8 md:flex-row">
+        {/* Tab Buttons */}
         <div className="flex flex-col space-y-4 md:w-1/4">
           {TAB_DATA.map((tabItem) => (
             <div key={tabItem.id}>
@@ -190,13 +190,13 @@ const WhatWeDoSection = () => {
         {/* Tab Content on Desktop */}
         <motion.div
           key={tab}
-          className="hidden md:block md:w-3/4"
+          className="hidden md:block md:w-3/4 "
           initial={{ opacity: 0, translateY: 20 }}
           animate={{ opacity: 1, translateY: 0 }}
           exit={{ opacity: 0, translateY: -20 }}
           transition={{ duration: 0.3 }}
         >
-          {TAB_DATA.find((t) => t.id === tab).content}
+          {tab ? TAB_DATA.find((t) => t.id === tab)?.content : <p>Please select a service to see the details.</p>}
         </motion.div>
       </div>
     </section>

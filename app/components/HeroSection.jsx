@@ -26,20 +26,24 @@ const HeroSection = () => {
           transition={{ duration: 1.5, ease: 'easeInOut' }}
           className="relative z-10 col-span-8 text-center place-self-center sm:text-left justify-self-start"
         >
-          {/* Typing Animation for Text */}
+          {/* Typing Animation for Text (only visible on md and above) */}
           <h1 className="hidden mb-2 text-3xl font-extrabold text-black lg:block md:text-5xl lg:text-7xl lg:leading-normal">
             <br />
             <TypeAnimation
               sequence={[
-                'Cleaning Services',
+                'Domestic Cleaning',
                 1500,
-                'Guildford',
+                'Commercial and Retail Cleaning',
                 1500,
-                'Godalming',
+                'End of Tenancy Cleaning',
                 1500,
-                'Farnham',
+                'Deep Cleaning Services',
                 1500,
-                'Cleaning Services around Guildford',
+                'Carpet and Upholstery Cleaning',
+                1500,
+                'Pressure Washing Services',
+                1500,
+                'Airbnb Rental Cleaning',
                 1500,
               ]}
               wrapper="span"
@@ -48,8 +52,8 @@ const HeroSection = () => {
             />
           </h1>
 
-          {/* Masked Text Animation */}
-          <div className="relative mt-6">
+          {/* Masked Text Animation (only visible on md and above) */}
+          <div className="relative mt-6 md:block">
             <motion.div
               initial={{ x: 240 }}
               animate={{ x: -840 }}
@@ -59,13 +63,12 @@ const HeroSection = () => {
                 repeatType: 'mirror',
                 ease: 'easeInOut',
               }}
-              className="absolute right-0 z-20 lg:-top-20"
+              className="absolute right-0 z-20 hidden md:flex lg:-top-20"
             >
               <motion.img src={Sponge.src} alt="Sponge image" className="w-[150px] md:w-45 lg:w-48" />
             </motion.div>
 
             {/* Text that is revealed by the sponge */}
-
             <div className="flex flex-col items-center gap-2 xl:flex-row">
               <div className="text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
                 We Clean
@@ -91,7 +94,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <p className="bg-gradient-to-b font-bold from-black to-[#001E80] text-transparent bg-clip-text sm:text-2xl mb-6 text-2xl lg:text-2xl mt-6">
+          {/* Hero description text */}
+          <p className="bg-gradient-to-b font-bold from-black to-[#001E80] text-transparent bg-clip-text  sm:text-2xl mb-6 text-2xl lg:text-2xl  mt-6">
             At No Spots Left, we take cleaning as seriously as a cuppa tea. From stubborn stains to hidden dust bunnies,
             we handle the mess so you can put your feet up. Our expert team ensures every nook and cranny is spotless,
             leaving your space looking as fresh as a daisy. Whether it’s your home, office, or somewhere in between,
