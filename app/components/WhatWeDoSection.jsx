@@ -11,7 +11,7 @@ const TAB_DATA = [
     id: 'domestic',
 
     content: (
-      <ul className="pl-2 list-disc md:text-2xl">
+      <ul className="pl-2 list-disc marker:text-[#FF6F61] md:text-2xl">
         <h1 className="section-description">
           Your home is your sanctuary, and we treat it that way. Our domestic cleaning service offers everything from
           routine cleaning to deep cleans, ensuring your living space remains fresh, comfortable, and pristine. Whether
@@ -33,7 +33,7 @@ const TAB_DATA = [
     title: 'Commercial and Retail Cleaning',
     id: 'office',
     content: (
-      <ul className="pl-2 list-disc md:text-2xl">
+      <ul className="pl-2 marker:text-[#FF6F61] list-disc md:text-2xl">
         <h1 className="section-description">
           A clean office promotes productivity and leaves a lasting impression on clients and employees. No Spots Left
           offers customizable office cleaning services designed to maintain a pristine and healthy work environment:
@@ -59,7 +59,7 @@ const TAB_DATA = [
     title: 'End of Tenancy Cleaning',
     id: 'endTenancy',
     content: (
-      <ul className="pl-2 list-disc md:text-2xl">
+      <ul className="pl-2 marker:text-[#FF6F61] list-disc md:text-2xl">
         <h1 className="section-description">
           Moving out? Leave the cleaning to us. We provide comprehensive end-of-tenancy cleaning services that ensure
           the property is spotless for the next tenants or to meet the landlord&apos;s expectations. Our service covers:
@@ -79,7 +79,7 @@ const TAB_DATA = [
     title: 'Deep Cleaning Services',
     id: 'deepCleaning',
     content: (
-      <ul className="pl-2 list-disc md:text-2xl">
+      <ul className="pl-2 marker:text-[#FF6F61] list-disc md:text-2xl">
         <h1 className="section-description">
           Ideal for spring cleaning or special occasions, this service goes beyond standard cleaning to tackle areas
           often overlooked during routine cleans:
@@ -94,7 +94,7 @@ const TAB_DATA = [
     title: 'Carpet and Upholstery Cleaning',
     id: 'carpet',
     content: (
-      <ul className="pl-2 list-disc md:text-2xl">
+      <ul className="pl-2 marker:text-[#FF6F61] list-disc md:text-2xl">
         <h1 className="section-description">
           Over time, carpets and upholstery can trap dirt, allergens, and odors. This specialized service ensures a deep
           clean for soft furnishings:
@@ -110,7 +110,7 @@ const TAB_DATA = [
     title: 'Pressure Washing Services',
     id: 'pressure',
     content: (
-      <ul className="pl-2 list-disc md:text-2xl">
+      <ul className="pl-2 marker:text-[#FF6F61] list-disc md:text-2xl">
         <h1 className="section-description">
           Ideal for outdoor cleaning, pressure washing removes dirt, mold, and grime from exterior surfaces:
         </h1>
@@ -126,7 +126,7 @@ const TAB_DATA = [
     title: 'Airbnb Rental Cleaning',
     id: 'airBnb',
     content: (
-      <ul className="pl-2 list-disc md:text-2xl">
+      <ul className="pl-2 marker:text-[#FF6F61] list-disc md:text-2xl">
         <h1 className="section-description">
           Offer a specialized cleaning service tailored to short-term rental properties like Airbnb listings:
         </h1>

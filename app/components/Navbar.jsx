@@ -9,6 +9,10 @@ import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import NavLink from './NavLink';
+import Email from '../assets/email.png';
+import Mobile from '../assets/mobile.png';
+import { FaFacebookF, FaWhatsappSquare } from 'react-icons/fa';
+import { BiLogoGmail, BiMobileVibration } from 'react-icons/bi';
 
 // Main navigation links
 const navLinks = [
@@ -149,7 +153,7 @@ const Navbar = () => {
           variants={menuVariants}
           className="fixed top-0 left-0 z-40 w-full min-h-screen bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-x-clip"
         >
-          <div className="block menu md:hidden md:w-auto" id="navbar">
+          <div className="flex flex-col items-center justify-between menu md:hidden md:w-auto" id="navbar">
             <ul className="mt-24 space-y-8 text-3xl font-semibold text-center">
               {navLinks.map((link, index) => (
                 <li key={index}>
@@ -179,7 +183,7 @@ const Navbar = () => {
 
                           {/* Sub-links for "What We Do" */}
                           {dropdownOpen && (
-                            <ul className="mt-4 space-y-4 text-xl">
+                            <ul className="mt-4 space-y-2 text-sm">
                               {link.subLinks.map((subLink, subIndex) => (
                                 <li key={subIndex}>
                                   <Link
@@ -187,7 +191,7 @@ const Navbar = () => {
                                     smooth={true}
                                     offset={-70}
                                     duration={500}
-                                    className="cursor-pointer"
+                                    className="cursor-pointer "
                                     onClick={closeNav}
                                   >
                                     {subLink.title}
@@ -216,6 +220,62 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
+            <div className="flex flex-row items-center justify-between gap-6 mt-20">
+              <div className="w-[40px] h-[40px] rounded-full bg-[#FF6F61] my-1 flex justify-center items-center hover:bg-[#D3D3D3] transition-colors duration-300">
+                <a href="tel:07570532554" target="_blank" rel="noreferrer">
+                  <motion.div
+                    whileInView={{ scale: [0, 1] }}
+                    whileHover={{ scale: [1, 0.9] }}
+                    transition={{ duration: 0.25 }}
+                    className="app__flex"
+                  >
+                    <BiMobileVibration className="text-white hover:text-[#FF6F61] transition-colors duration-300" />
+                  </motion.div>
+                </a>
+              </div>
+
+              {/* WhatsApp Button */}
+              <div className="w-[40px] h-[40px] rounded-full bg-[#FF6F61] my-1 flex justify-center items-center hover:bg-[#D3D3D3]  transition-colors duration-300">
+                <a href="whatsapp://send?text=Hello World!&phone=+447570532554" target="_blank" rel="noreferrer">
+                  <motion.div
+                    whileInView={{ scale: [0, 1] }}
+                    whileHover={{ scale: [1, 0.9] }}
+                    transition={{ duration: 0.25 }}
+                    className="app__flex"
+                  >
+                    <FaWhatsappSquare className="text-white hover:text-[#FF6F61] transition-colors duration-300" />
+                  </motion.div>
+                </a>
+              </div>
+              <Image src={Logo} alt="Saas Logo" height={60} width={100} className="relative" />
+              {/* Facebook Button */}
+              <div className="w-[40px] h-[40px] rounded-full bg-[#FF6F61] my-1 flex justify-center items-center hover:bg-[#D3D3D3]  transition-colors duration-300">
+                <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+                  <motion.div
+                    whileInView={{ scale: [0, 1] }}
+                    whileHover={{ scale: [1, 0.9] }}
+                    transition={{ duration: 0.25 }}
+                    className="app__flex"
+                  >
+                    <FaFacebookF className="text-white hover:text-[#FF6F61] transition-colors duration-300" />
+                  </motion.div>
+                </a>
+              </div>
+
+              {/* Email Button */}
+              <div className="w-[40px] h-[40px] rounded-full bg-[#FF6F61] my-1 flex justify-center items-center hover:bg-[#D3D3D3]  transition-colors duration-300">
+                <a href="mailto:popescu.romeo9@gmail.com" target="_blank" rel="noreferrer">
+                  <motion.div
+                    whileInView={{ scale: [0, 1] }}
+                    whileHover={{ scale: [1, 0.9] }}
+                    transition={{ duration: 0.25 }}
+                    className="app__flex"
+                  >
+                    <BiLogoGmail className="text-white hover:text-[#FF6F61] transition-colors duration-300" />
+                  </motion.div>
+                </a>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

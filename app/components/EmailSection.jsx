@@ -43,12 +43,16 @@ const EmailSection = () => {
           {' '}
           Pop your details, and we’ll be round to give your Surrey space a proper tidy – no spot left behind!{' '}
         </p>
-        <div></div>
+        <div className="flex items-center gap-4 py-3 font-bold md:justify-start text-md">
+          <IoLocationSharp className="text-[#FF6F61] w-10 h-10 " />
+          <span>Godalming</span> <span>Guildford</span>
+          <span>Farnham</span>
+        </div>
         <div className="flex flex-col gap-12 ">
           <div className="flex flex-col justify-center gap-6 ">
             <div className="flex flex-row items-center justify-start gap-3">
               <Image src={Email.src} alt="email" width={40} height={40} />
-              <a href="mailto:giurgealena@gmail.com" className="text-xl font-bold">
+              <a href="mailto:nospotsleft@gmail.com" className="text-xl font-bold">
                 nospotsleft@gmail.com
               </a>
             </div>
@@ -87,11 +91,6 @@ const EmailSection = () => {
                 </motion.div>
               </a>
             </div>
-          </div>
-          <div className="flex items-center justify-center gap-4 py-3 font-bold text-md">
-            <IoLocationSharp className="text-[#FF6F61] w-10 h-10 " />
-            <span>Godalming</span> <span>Guildford</span>
-            <span>Farnham</span>
           </div>
         </div>
       </div>
