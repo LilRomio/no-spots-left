@@ -70,7 +70,7 @@ const HeroSection = () => {
 
             {/* Text that is revealed by the sponge */}
             <div className="flex flex-col items-center gap-2 xl:flex-row">
-              <div className="text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
+              <div className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
                 We Clean <span className="md:hidden"> Like Your Mum&apos;s Coming Over!</span>
               </div>
 

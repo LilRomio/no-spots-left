@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { GiVacuumCleaner } from 'react-icons/gi';
+import { TbSquareRoundedChevronDown, TbSquareRoundedChevronUp } from 'react-icons/tb';
 import Logo from '../assets/NoSpotsLeft-logo.png';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
@@ -102,8 +103,8 @@ const Navbar = () => {
       }`}
     >
       <div
-        className="max-w-[95%] lg:max-w-[1300px] xl:max-w-[1450px] mx-auto flex justify-between text-black
-        text-xl items-center h-20"
+        className="max-w-[95%] lg:max-w-[1300px] xl:max-w-[1450px] mx-auto flex justify-between text-black pr-2
+        text-xl items-center h-20 mt-2"
       >
         <a href="#heroSection">
           <Image src={Logo} alt="No Spots Left Logo" height={40} width={110} />
@@ -133,8 +134,12 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Toggle Button */}
-        <div onClick={toggleNav} className="z-50 text-[#18191E] md:hidden">
-          {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
+        <div onClick={toggleNav} className="z-50 text-[#18191E] ml-2 md:hidden">
+          {nav ? (
+            <AiOutlineClose className="text-[#FF6F61] " size={40} />
+          ) : (
+            <GiVacuumCleaner className="text-[#FF6F61] border-y-4 border-[#FF6F61]  " size={50} />
+          )}
         </div>
 
         {/* Mobile Menu */}
@@ -164,7 +169,11 @@ const Navbar = () => {
                               {link.title}
                             </Link>
                             <button onClick={toggleDropdown} className="ml-2">
-                              {dropdownOpen ? <FaChevronUp /> : <FaChevronDown />}
+                              {dropdownOpen ? (
+                                <TbSquareRoundedChevronUp className="text-[#FF6F61] " size={40} />
+                              ) : (
+                                <TbSquareRoundedChevronDown className="text-[#FF6F61] " size={40} />
+                              )}
                             </button>
                           </div>
 
