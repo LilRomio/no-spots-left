@@ -16,13 +16,13 @@ const TabButton = ({ active, selectTab, children }) => {
   return (
     <button onClick={selectTab} className="relative flex flex-col items-center w-full">
       {/* Tab Title */}
-      <p className={`mr-3 transition-all duration-300 ease-in-out ${buttonClasses}`}>{children}</p>
+      <div className={`mr-3 transition-all duration-300 ease-in-out ${buttonClasses}`}>{children}</div>
 
       {/* Responsive Animated Underline */}
       <motion.div
         animate={active ? 'active' : 'default'}
         variants={variants}
-        className="h-1 mt-1 bg-[#001E80] w-[50%] sm:w-[75%] md:w-[100%] rounded-md transition-all duration-300 ease-in-out mb-4"
+        className="h-1 mt-1 bg-[#FF6F61] w-[50%] sm:w-[75%] md:w-[100%] rounded-md transition-all duration-300 ease-in-out mb-4"
       />
     </button>
   );

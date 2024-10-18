@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 
 import { FaFacebookF, FaWhatsappSquare } from 'react-icons/fa';
+import { IoLocationSharp } from 'react-icons/io5';
 import Email from '../assets/email.png';
 import Mobile from '../assets/mobile.png';
 import Link from 'next/link';
@@ -33,21 +34,18 @@ const EmailSection = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative grid gap-4 py-24 pt-8 pb-20 my-12 md:grid-cols-2 md:my-12 md:pt-5 md:pb-10 overflow-x-clip"
-    >
-      <div className="z-10 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
-        <h5 className="my-2 text-7xl  font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
+    <section id="contact" className="relative grid gap-4 pt-1 pb-20 md:grid-cols-2 overflow-x-clip">
+      <div className="z-10 items-center gap-8 px-4 xl:gap-16 xl:px-16">
+        <h5 className="my-2 text-5xl md:text-7xl  font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
           Let&apos;s Get This Sorted, Shall We?
         </h5>
-        <p className="max-w-md mb-4 text-2xl  bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text ">
+        <p className="max-w-md mb-4 text-xl lg:text-2xl section-description">
           {' '}
           Pop your details, and we’ll be round to give your Surrey space a proper tidy – no spot left behind!{' '}
         </p>
         <div></div>
         <div className="flex flex-col gap-12 ">
-          <div className="flex flex-col justify-center gap-4 ">
+          <div className="flex flex-col justify-center gap-6 ">
             <div className="flex flex-row items-center justify-start gap-3">
               <Image src={Email.src} alt="email" width={40} height={40} />
               <a href="mailto:giurgealena@gmail.com" className="text-xl font-bold">
@@ -90,9 +88,14 @@ const EmailSection = () => {
               </a>
             </div>
           </div>
+          <div className="flex items-center justify-center gap-4 py-3 font-bold text-md">
+            <IoLocationSharp className="text-[#FF6F61] w-10 h-10 " />
+            <span>Godalming</span> <span>Guildford</span>
+            <span>Farnham</span>
+          </div>
         </div>
       </div>
-      <div className="z-10 items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
+      <div className="z-10 items-center gap-8 px-4 xl:gap-16 xl:px-16">
         {!isFormSubmitted ? (
           <form action="https://formsubmit.co/popescu.romeo9@gmail.com" method="POST" target="_blank">
             <div className="mb-6">
@@ -119,7 +122,7 @@ const EmailSection = () => {
                 value={phone}
                 onChange={handleChangeInput}
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 [&::-webkit-inner-spin-button]:appearance-none [appearance:textfield]"
                 placeholder="Telephone"
               />
             </div>
@@ -134,7 +137,7 @@ const EmailSection = () => {
                 onChange={handleChangeInput}
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Type the service you require"
+                placeholder="Type the service you require (ex: Domestic Cleaning)"
               />
             </div>
             <div className="mb-6">
@@ -146,24 +149,31 @@ const EmailSection = () => {
                 name="message"
                 onChange={handleChangeInput}
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block min-h-200 w-full p-2.5 "
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block min-h-200 w-full p-2.5 min-h-[180px] md:min-h-[220px] "
                 placeholder="Let's talk about..."
               />
             </div>
-
-            {true ? (
-              <button className="bg-primary-500 hover:bg-primary-600 text-black font-medium py-2.5 px-5 rounded-lg w-full">
-                {'Send Message'}
-              </button>
-            ) : (
-              <button
-                type="submit"
-                className="bg-primary-500 hover:bg-primary-600 text-black font-medium py-2.5 px-5 rounded-lg w-full"
-                onClick={handleSubmit}
-              >
-                {loading ? 'Sending' : 'Send Message'}
-              </button>
-            )}
+            <div className="flex items-center justify-center mt-4">
+              {true ? (
+                <motion.button
+                  whileHover={{ scale: 1.05 }} // Slight scaling effect on hover
+                  whileTap={{ scale: 0.95 }} // Slight scaling down on click
+                  className="bg-[#FF6F61] hover:bg-[#FFFFFF] text-white hover:text-[#FF6F61] font-medium py-2 px-6 rounded-full transition-all duration-300 ease-in-out"
+                  style={{ width: 'auto', padding: '10px 20px' }} // Smaller button size
+                >
+                  {'Send Message'}
+                </motion.button>
+              ) : (
+                <motion.button
+                  whileTap={{ scale: 0.95 }} // Slight scaling down on click
+                  type="submit"
+                  className="bg-[#FF6F61] hover:bg-[#FFFFFF] text-white hover:text-[#FF6F61] font-medium py-2.5 px-5 rounded-lg w-full transition-all duration-300 ease-in-out"
+                  onClick={handleSubmit}
+                >
+                  {loading ? 'Sending' : 'Send Message'}
+                </motion.button>
+              )}
+            </div>
           </form>
         ) : (
           <div>

@@ -3,11 +3,13 @@ import React, { useTransition, useState } from 'react';
 import { motion } from 'framer-motion';
 import TabButton from './TabButton';
 import { AppWrap, MotionWrap } from '../wrapper';
-
+import { FaArrowCircleLeft, FaArrowCircleDown } from 'react-icons/fa';
+import { TbSquareRoundedChevronDown } from 'react-icons/tb';
 const TAB_DATA = [
   {
     title: 'Domestic Cleaning',
     id: 'domestic',
+
     content: (
       <ul className="pl-2 list-disc md:text-2xl">
         <h1 className="section-description">
@@ -164,13 +166,20 @@ const WhatWeDoSection = () => {
         Here&apos;s a glimpse of the services we offer:
       </p>
 
-      <div className="flex flex-col justify-between mt-8 md:gap-8 md:flex-row">
+      <div className="flex flex-col justify-between mt-8 md:gap-20 md:flex-row">
         {/* Tab Buttons */}
         <div className="flex flex-col space-y-4 md:w-1/4">
           {TAB_DATA.map((tabItem) => (
             <div key={tabItem.id}>
               <TabButton selectTab={() => handleTabChange(tabItem.id)} active={tab === tabItem.id}>
-                {tabItem.title}
+                <div className="flex flex-row items-center">
+                  {tabItem.title}
+                  {/* Show down arrow on mobile and right arrow on md and above */}
+                  <span className="ml-2">
+                    <TbSquareRoundedChevronDown className="block md:hidden text-[#FF6F61] w-8 h-8" />
+                    {/* Mobile view */}
+                  </span>
+                </div>
               </TabButton>
 
               {/* Show content immediately after each tab on mobile */}
@@ -199,7 +208,12 @@ const WhatWeDoSection = () => {
           {tab ? (
             TAB_DATA.find((t) => t.id === tab)?.content
           ) : (
-            <p className="text-3xl ">Please select a service to see the details.</p>
+            <div className="flex flex-row gap-2 items-center text-3xl text-[#FF6F61] font-bold">
+              <span>
+                <FaArrowCircleLeft />
+              </span>
+              Please select a service to see the details.
+            </div>
           )}
         </motion.div>
       </div>

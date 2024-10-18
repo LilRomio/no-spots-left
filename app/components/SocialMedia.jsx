@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const SocialMedia = () => {
   return (
-    <div className="flex flex-col items-center justify-center hidden p-4 md:flex">
+    <div className="flex-col items-center justify-center hidden p-4  md:flex">
       {/* Mobile Button */}
       <div className="w-[40px] h-[40px] rounded-full bg-[#FF6F61] my-1 flex justify-center items-center hover:bg-[#D3D3D3] transition-colors duration-300">
         <a href="tel:07570532554" target="_blank" rel="noreferrer">
