@@ -46,8 +46,8 @@ const EmailSection = () => {
           Pop your details, and we’ll be round to give your Surrey space a proper tidy – no spot left behind!{' '}
         </p>
         <div></div>
-        <div className="flex flex-col gap-8 ">
-          <div className="flex flex-col items-center gap-4 md:flex-row justify-evenly">
+        <div className="flex flex-col gap-12 ">
+          <div className="flex flex-col justify-center gap-4 ">
             <div className="flex flex-row items-center justify-start gap-3">
               <Image src={Email.src} alt="email" width={40} height={40} />
               <a href="mailto:giurgealena@gmail.com" className="text-xl font-bold">
