@@ -118,7 +118,7 @@ const Testimonials = () => {
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
             What Our Clients Say
           </h2>
-          <p className="mt-5 section-description">
+          <p className="mt-5 text-xl section-description">
             Nothing speaks louder than the praise of our happy clients. From spotless homes to gleaming offices, our
             customers love the detail and dedication we bring to every clean. Hear why they trust us to keep their
             spaces shining!

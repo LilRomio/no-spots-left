@@ -45,5 +45,5 @@
 }
 
 .section-description {
-  @apply text-lg md:text-lg font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mb-6;
+  @apply text-lg md:text-2xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mb-6;
 }
