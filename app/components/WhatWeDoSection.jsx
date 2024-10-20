@@ -5,6 +5,7 @@ import TabButton from './TabButton';
 import { AppWrap, MotionWrap } from '../wrapper';
 import { FaArrowCircleLeft, FaArrowCircleDown } from 'react-icons/fa';
 import { TbSquareRoundedChevronDown } from 'react-icons/tb';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 const TAB_DATA = [
   {
     title: 'Domestic Cleaning',
@@ -144,12 +145,43 @@ const TAB_DATA = [
 ];
 
 const WhatWeDoSection = () => {
-  const [tab, setTab] = useState(null); // No tab selected on initial load
+  //const [tab, setTab] = useState(null); // No tab selected on initial load
+
+  const searchParams = useSearchParams();
+
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const tab = searchParams.get('activeTab');
+
+  const setTab = (tabId) => {
+    const url = new URL(window.location);
+
+    // If no tabId is provided (i.e., null), remove the query param
+    if (tabId === null) {
+      url.searchParams.delete('activeTab');
+    } else {
+      url.searchParams.set('activeTab', tabId);
+    }
+
+    history.pushState(null, '', url);
+
+    // Scroll the element into view if there's a valid tabId
+    if (tabId) {
+      document.getElementById(tabId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
     startTransition(() => {
-      setTab((prevTab) => (prevTab === id ? null : id)); // Toggle tab open/close
+      // If the same tab is clicked, close it (i.e., set the tab to null)
+      if (tab === id) {
+        setTab(null); // Close the tab
+      } else {
+        setTab(id); // Open the new tab
+      }
     });
   };
 
@@ -170,14 +202,13 @@ const WhatWeDoSection = () => {
         {/* Tab Buttons */}
         <div className="flex flex-col space-y-4 md:w-1/4">
           {TAB_DATA.map((tabItem) => (
-            <div key={tabItem.id}>
+            <div key={tabItem.id} id={tabItem.id}>
               <TabButton selectTab={() => handleTabChange(tabItem.id)} active={tab === tabItem.id}>
                 <div className="flex flex-row items-center">
                   {tabItem.title}
                   {/* Show down arrow on mobile and right arrow on md and above */}
                   <span className="ml-2">
                     <TbSquareRoundedChevronDown className="block md:hidden text-[#FF6F61] w-8 h-8" />
-                    {/* Mobile view */}
                   </span>
                 </div>
               </TabButton>

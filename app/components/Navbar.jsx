@@ -9,10 +9,9 @@ import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import NavLink from './NavLink';
-import Email from '../assets/email.png';
-import Mobile from '../assets/mobile.png';
 import { FaFacebookF, FaWhatsappSquare } from 'react-icons/fa';
 import { BiLogoGmail, BiMobileVibration } from 'react-icons/bi';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 // Main navigation links
 const navLinks = [
@@ -28,14 +27,12 @@ const navLinks = [
     hasSubLinks: true,
     subLinks: [
       { title: 'Domestic Cleaning', path: 'domestic' },
-      { title: 'Office Cleaning', path: 'office' },
+      { title: 'Commercial & Retail Cleaning', path: 'office' },
       { title: 'End of Tenancy Cleaning', path: 'endTenancy' },
       { title: 'Deep Cleaning Services', path: 'deepCleaning' },
       { title: 'Carpet & Upholstery Cleaning', path: 'carpet' },
-      { title: 'Post-Construction Cleaning', path: 'construction' },
       { title: 'Pressure Washing', path: 'pressure' },
       { title: 'Airbnb Rental Cleaning', path: 'airBnb' },
-      { title: 'Commercial & Retail Cleaning', path: 'commercial' },
     ],
   },
   {
@@ -55,6 +52,11 @@ const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [visible, setVisible] = useState(true); // Track visibility
   const [prevScrollPos, setPrevScrollPos] = useState(0); // Track previous scroll position
+
+  const searchParams = useSearchParams();
+
+  const pathname = usePathname();
+  const { replace } = useRouter();
 
   const toggleNav = () => {
     setNav(!nav);
@@ -99,6 +101,16 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [prevScrollPos]);
+
+  const setTab = (tabId) => {
+    const url = new URL(window.location);
+    url.searchParams.set('activeTab', tabId);
+    history.pushState(null, '', url);
+
+    if (tabId) {
+      document.getElementById(tabId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   return (
     <div
@@ -183,16 +195,19 @@ const Navbar = () => {
 
                           {/* Sub-links for "What We Do" */}
                           {dropdownOpen && (
-                            <ul className="mt-4 space-y-2 text-sm">
+                            <ul className="flex flex-col items-center mt-4 space-y-2 text-sm text-center">
                               {link.subLinks.map((subLink, subIndex) => (
-                                <li key={subIndex}>
+                                <li key={subIndex} className="w-full">
                                   <Link
-                                    to={subLink.path}
+                                    to={subLink.path} // Correct path to section ID
                                     smooth={true}
-                                    offset={-70}
+                                    offset={-90} // Adjust offset value
                                     duration={500}
-                                    className="cursor-pointer "
-                                    onClick={closeNav}
+                                    className="block w-full cursor-pointer"
+                                    onClick={() => {
+                                      closeNav(); // Close menu when sublink clicked
+                                      setDropdownOpen(false); // Close dropdown
+                                    }}
                                   >
                                     {subLink.title}
                                   </Link>
