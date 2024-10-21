@@ -92,7 +92,7 @@ const HeroSection = () => {
                 Like Your Mum&apos;s Coming Over!
               </motion.div>
             </div>
-            <div className="flex items-center justify-center gap-4 py-3 font-bold md:justify-start text-md md:text-3xl">
+            <div className="flex items-center justify-center gap-4 py-3 font-bold lg:hidden md:justify-start text-md md:text-3xl">
               <IoLocationSharp className="text-[#FF6F61] w-17 h-17 " /> <span>Godalming</span> <span>Guildford</span>
               <span>Farnham</span>
             </div>

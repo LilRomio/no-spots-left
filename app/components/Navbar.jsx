@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { GiVacuumCleaner } from 'react-icons/gi';
+import { AiOutlineClose } from 'react-icons/ai';
+
+import { LuMenu } from 'react-icons/lu';
+
 import { TbSquareRoundedChevronDown, TbSquareRoundedChevronUp } from 'react-icons/tb';
 import Logo from '../assets/NoSpotsLeft-logo.png';
 import { Link } from 'react-scroll';
@@ -12,7 +14,7 @@ import NavLink from './NavLink';
 import { FaFacebookF, FaWhatsappSquare } from 'react-icons/fa';
 import { BiLogoGmail, BiMobileVibration } from 'react-icons/bi';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-
+import { IoLocationSharp } from 'react-icons/io5';
 // Main navigation links
 const navLinks = [
   {
@@ -125,7 +127,10 @@ const Navbar = () => {
         <a href="#heroSection">
           <Image src={Logo} alt="No Spots Left Logo" height={40} width={110} />
         </a>
-
+        <div className="items-center justify-center hidden gap-4 py-3 font-bold lg:flex md:justify-start text-md md:text-xl">
+          <IoLocationSharp className="text-[#FF6F61] w-17 h-17 " /> <span>Godalming</span> <span>Guildford</span>
+          <span>Farnham</span>
+        </div>
         {/* Desktop Menu */}
         <div className="hidden menu md:block md:w-auto" id="navbar">
           <ul className="flex p-4 mt-0 md:p-0 md:flex-row md:space-x-8">
@@ -154,7 +159,7 @@ const Navbar = () => {
           {nav ? (
             <AiOutlineClose className="text-[#FF6F61] " size={40} />
           ) : (
-            <GiVacuumCleaner className="text-[#FF6F61] border-y-4 border-[#FF6F61]  " size={50} />
+            <LuMenu className="text-[#FF6F61]   " size={50} />
           )}
         </div>
 
@@ -235,7 +240,7 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-row items-center justify-between gap-6 mt-[220px]">
+            <div className="flex flex-row items-center justify-between gap-6 mt-[240px]">
               <div className="w-[40px] h-[40px] rounded-full bg-[#FF6F61] my-1 flex justify-center items-center hover:bg-[#D3D3D3] transition-colors duration-300">
                 <a href="tel:07570532554" target="_blank" rel="noreferrer">
                   <motion.div
