@@ -235,7 +235,7 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-row items-center justify-between gap-6 mt-60">
+            <div className="flex flex-row items-center justify-between gap-6 mt-[220px]">
               <div className="w-[40px] h-[40px] rounded-full bg-[#FF6F61] my-1 flex justify-center items-center hover:bg-[#D3D3D3] transition-colors duration-300">
                 <a href="tel:07570532554" target="_blank" rel="noreferrer">
                   <motion.div
