@@ -3,11 +3,12 @@
 import React from 'react';
 import { FaFacebookF, FaWhatsappSquare } from 'react-icons/fa';
 import { BiLogoGmail, BiMobileVibration } from 'react-icons/bi';
+import { FaPhoneVolume } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 
 const SocialMedia = () => {
   return (
-    <div className="flex-col items-center justify-center hidden p-4  md:flex">
+    <div className="flex-col items-center justify-center hidden p-4 md:flex">
       {/* Mobile Button */}
       <div className="w-[40px] h-[40px] rounded-full bg-[#FF6F61] my-1 flex justify-center items-center hover:bg-[#D3D3D3] transition-colors duration-300">
         <a href="tel:07570532554" target="_blank" rel="noreferrer">
@@ -17,7 +18,7 @@ const SocialMedia = () => {
             transition={{ duration: 0.25 }}
             className="app__flex"
           >
-            <BiMobileVibration className="text-white hover:text-[#FF6F61] transition-colors duration-300" />
+            <FaPhoneVolume className="text-white hover:text-[#FF6F61] transition-colors duration-300" />
           </motion.div>
         </a>
       </div>

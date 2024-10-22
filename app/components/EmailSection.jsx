@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 
 import { FaFacebookF, FaWhatsappSquare } from 'react-icons/fa';
+import { FaPhoneVolume } from 'react-icons/fa6';
 import { IoLocationSharp } from 'react-icons/io5';
 import Email from '../assets/email.png';
-import Mobile from '../assets/mobile.png';
+import Mobile from '../assets/phone.png';
 import Link from 'next/link';
 
 import { motion } from 'framer-motion';
@@ -47,14 +48,20 @@ const EmailSection = () => {
         <div className="flex flex-col gap-12 ">
           <div className="flex flex-col justify-center gap-6 ">
             <div className="flex flex-row items-center justify-start gap-3">
-              <Image src={Email.src} alt="email" width={40} height={40} />
+              <Image src={Email.src} alt="email" width={60} height={60} />
               <a href="mailto:nospotsleft@gmail.com" className="text-xl font-bold">
                 nospotsleft@gmail.com
               </a>
             </div>
-            <div className="flex flex-row items-center justify-start gap-3">
-              <Image src={Mobile.src} alt="mobile" width={40} height={40} />
-              <a href="tel:07570532554 " className="text-xl font-bold">
+            <div className="flex flex-row items-center justify-start gap-3 ">
+              <Image
+                src={Mobile.src}
+                alt="mobile"
+                width={60}
+                height={60}
+                className="bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#EAEEFE,#183EC2_100%)] rounded-lg"
+              />
+              <a href="tel:07570532554 " className="text-xl font-bold ">
                 07570532554
               </a>
             </div>
@@ -153,7 +160,7 @@ const EmailSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }} // Slight scaling effect on hover
                   whileTap={{ scale: 0.95 }} // Slight scaling down on click
-                  className="bg-[#FF6F61] hover:bg-[#FFFFFF] text-white hover:text-[#FF6F61] font-medium py-2 px-6 rounded-full transition-all duration-300 ease-in-out"
+                  className="bg-[#FF6F61] hover:bg-[#D3D3D3] text-white hover:text-[#FF6F61] font-medium py-2 px-6 rounded-full transition-all duration-300 ease-in-out"
                   style={{ width: 'auto', padding: '10px 20px' }} // Smaller button size
                 >
                   {'Send Message'}
@@ -162,7 +169,7 @@ const EmailSection = () => {
                 <motion.button
                   whileTap={{ scale: 0.95 }} // Slight scaling down on click
                   type="submit"
-                  className="bg-[#FF6F61] hover:bg-[#FFFFFF] text-white hover:text-[#FF6F61] font-medium py-2.5 px-5 rounded-lg w-full transition-all duration-300 ease-in-out"
+                  className="bg-[#FF6F61] hover:bg-[#D3D3D3] text-white hover:text-[#FF6F61] font-medium py-2.5 px-5 rounded-lg w-full transition-all duration-300 ease-in-out"
                   onClick={handleSubmit}
                 >
                   {loading ? 'Sending' : 'Send Message'}

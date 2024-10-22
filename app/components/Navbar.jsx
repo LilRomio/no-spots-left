@@ -13,6 +13,7 @@ import Image from 'next/image';
 import NavLink from './NavLink';
 import { FaFacebookF, FaWhatsappSquare } from 'react-icons/fa';
 import { BiLogoGmail, BiMobileVibration } from 'react-icons/bi';
+import { FaPhoneVolume } from 'react-icons/fa6';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { IoLocationSharp } from 'react-icons/io5';
 // Main navigation links
@@ -128,7 +129,8 @@ const Navbar = () => {
           <Image src={Logo} alt="No Spots Left Logo" height={40} width={110} />
         </a>
         <div className="items-center justify-center hidden gap-4 py-3 font-bold lg:flex md:justify-start text-md md:text-xl">
-          <IoLocationSharp className="text-[#FF6F61] w-17 h-17 " /> <span>Godalming</span> <span>Guildford</span>
+          <IoLocationSharp className="text-[#FF6F61] w-[30px] h-[30px] " /> <span>Godalming</span>{' '}
+          <span>Guildford</span>
           <span>Farnham</span>
         </div>
         {/* Desktop Menu */}
@@ -142,7 +144,7 @@ const Navbar = () => {
                     smooth={true}
                     offset={-70} // Offset for fixed navbar
                     duration={500}
-                    className="cursor-pointer"
+                    className="cursor-pointer hover:text-[#FF6F61] "
                   >
                     {link.title}
                   </Link>
@@ -249,7 +251,7 @@ const Navbar = () => {
                     transition={{ duration: 0.25 }}
                     className="app__flex"
                   >
-                    <BiMobileVibration className="text-white hover:text-[#FF6F61] transition-colors duration-300" />
+                    <FaPhoneVolume className="text-white hover:text-[#FF6F61] transition-colors duration-300" />
                   </motion.div>
                 </a>
               </div>

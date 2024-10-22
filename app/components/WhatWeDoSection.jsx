@@ -12,7 +12,7 @@ const TAB_DATA = [
     id: 'domestic',
 
     content: (
-      <ul className="pl-2 list-disc marker:text-[#FF6F61] md:text-2xl">
+      <ul className="pl-2 list-disc  marker:text-[#FF6F61] md:text-2xl">
         <h1 className="section-description">
           Your home is your sanctuary, and we treat it that way. Our domestic cleaning service offers everything from
           routine cleaning to deep cleans, ensuring your living space remains fresh, comfortable, and pristine. Whether
@@ -186,7 +186,7 @@ const WhatWeDoSection = () => {
   };
 
   return (
-    <section id="whatWeDo" className="items-center px-4 py-8 text-black">
+    <section id="whatWeDo" className="items-center px-4 py-8 text-black md:pb-12">
       <h2 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
         What We Do
       </h2>

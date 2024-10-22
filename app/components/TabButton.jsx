@@ -11,7 +11,7 @@ const TabButton = ({ active, selectTab, children }) => {
   // Dynamic button classes based on active state
   const buttonClasses = active
     ? 'font-black text-xl tracking-tight bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text'
-    : 'text-black text-lg md:text-xl hover:text-[#001E80] hover:font-bold';
+    : 'text-black text-lg md:text-xl hover:text-[#FF6F61] hover:font-bold';
 
   return (
     <button onClick={selectTab} className="relative flex flex-col items-center w-full">

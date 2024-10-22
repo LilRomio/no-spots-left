@@ -113,7 +113,7 @@ const TestimonialsColumn = ({ className, testimonials, duration }) => (
 const Testimonials = () => {
   return (
     <section id="testimonials">
-      <div className="items-center gap-8 px-4 py-8 xl:gap-16 sm:py-16 xl:px-16">
+      <div className="items-center gap-8 px-4 py-8 md:pt-0 md:mt-4 xl:gap-16 sm:py-16 xl:px-16">
         <div className="flex flex-col h-full mt-4 text-left md:mt-0">
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
             What Our Clients Say
