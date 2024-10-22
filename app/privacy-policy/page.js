@@ -2,14 +2,20 @@
 
 import React from 'react';
 
-const PrivacyPolicy = () => {
+import Logo from '../assets/NoSpotsLeft-logo.png';
+import Image from 'next/image';
+
+export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen py-10 bg-gray-100">
-      <div className="max-w-4xl p-8 mx-auto bg-white rounded-lg shadow-md">
+      <div className="max-w-4xl p-8 mx-auto mt-8 bg-white rounded-lg shadow-md">
+        <a href="#heroSection">
+          <Image src={Logo} alt="No Spots Left Logo" height={40} width={110} />
+        </a>
         <h1 className="text-4xl font-bold text-[#003366] mb-6">Privacy Policy</h1>
 
         <p className="mb-4 text-lg">
-          <strong>Effective Date:</strong> [Insert Date]
+          <strong>Effective Date:</strong> 22.10.2024
         </p>
 
         <p className="mb-4 text-lg">
@@ -90,6 +96,4 @@ const PrivacyPolicy = () => {
       </div>
     </div>
   );
-};
-
-export default PrivacyPolicy;
+}

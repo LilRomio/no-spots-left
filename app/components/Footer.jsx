@@ -12,10 +12,10 @@ const Footer = () => {
           <Image src={Logo} alt="Saas Logo" height={60} width={100} className="relative" />
         </div>
 
-        <Link href="/privacy-policy" target="_blank">
+        <Link href="/privacy-policy" target="_blank" className="hover:text-[#FF6F61]">
           Privacy Notice
         </Link>
-        <Link href="/terms" target="_blank">
+        <Link href="/terms" target="_blank" className="hover:text-[#FF6F61]">
           Terms and Conditions
         </Link>
 

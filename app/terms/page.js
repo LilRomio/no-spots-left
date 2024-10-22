@@ -1,15 +1,20 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
+import Logo from '../assets/NoSpotsLeft-logo.png';
 
-const TermsAndConditions = () => {
+export default function TermsAndConditions() {
   return (
     <div className="min-h-screen py-10 bg-gray-100">
       <div className="max-w-4xl p-8 mx-auto bg-white rounded-lg shadow-md">
+        <a href="#heroSection">
+          <Image src={Logo} alt="No Spots Left Logo" height={40} width={110} />
+        </a>
         <h1 className="text-4xl font-bold text-[#003366] mb-6">Terms and Conditions</h1>
 
         <p className="mb-4 text-lg">
-          <strong>Effective Date:</strong> [Insert Date]
+          <strong>Effective Date:</strong> 22.10.2024
         </p>
 
         <p className="mb-4 text-lg">
@@ -95,11 +100,9 @@ const TermsAndConditions = () => {
         <h2 className="text-2xl font-semibold text-[#003366] mt-6 mb-4">6. Contact Us</h2>
 
         <p className="mb-4 text-lg">
-          If you have any questions or concerns about these Terms, please contact us at [Insert Contact Information].
+          If you have any questions or concerns about these Terms, please contact us at nospotsleft@gmail.com.
         </p>
       </div>
     </div>
   );
-};
-
-export default TermsAndConditions;
+}
